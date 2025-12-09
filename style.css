@@ -308,7 +308,7 @@
     text-align: center;
 
     width: 60%;
-    margin: 18px auto 30px auto; /* Centralizado, margem do topo e do texto */
+    margin: 10px auto 30px auto; /* Centralizado, margem do topo e do texto */
 
     /* Remova qualquer posicionamento absoluto que possa ter sobrado */
     position: static;
@@ -462,3 +462,4 @@
     line-height: 1.3;
 
 }
+
