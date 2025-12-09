@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap');
+/* ========================================================================== */
+/* CORES DE REFERÊNCIA (VARIÁVEIS) */
+/* ========================================================================== */
+:root {
+    --dark-green: #2A552A; /* Verde escuro */
+    --light-green: #558855; /* Verde médio (Botões) */
+    --text-color: white;
+}
+
+/* ========================================================================== */
+/* ESTILOS GERAIS DE LAYOUT E CONTAINER PRINCIPAL (Aplicado no INDEX.HTML) */
+/* ========================================================================== */
+
+/* Fundo da Página Principal/Menu */
+.main-menu-body {
+    /* Garante que o container ocupe 100% da tela */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    
+    /* Configuração da Imagem em Tela Cheia */
+    background-image: url('images/fundo textura folhagem.png');
+    background-size: cover; /* COBRE A TELA INTEIRA */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Opcional: mantem a imagem fixa */
+}
+
+/* Garante a centralização e o layout (mantendo as regras que funcionavam) */
+#main-content {
+    /* NÃO TEM MAIS background-image AQUI */
+    
+    /* Propriedades de centralização que você já tinha: */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o menu */
+    align-items: center; /* Centraliza verticalmente o menu */
+    
+    /* Garante que ele ocupe o espaço para centralizar o menu-container */
+    width: 100%;
+    height: 100%;
+    
+    transition: opacity 1s ease;
+}
+
+/* Container do Menu (Fica em cima do #main-content) */
+.menu-container {
+    max-width: 600px; /* Ajuste este valor para controlar a largura total do menu */
+    margin: 0 auto;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0; /* Remove qualquer arredondamento */
+    overflow: hidden; /* Importante para o visual de bloco */
+}
+
+/* ESTILO DO TÍTULO (O QUE VOCÊ QUER EXPLORAR HOJE?) */
+.menu-title {
+    background-color: #273D27;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px; /* Ajuste o tamanho da fonte se necessário */
+    font-weight: 1000; /* Super Negrito */
+    text-align: center;
+    padding: 30px 20px; /* Espaçamento interno (altura) */
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0; /* Remove margens que podem quebrar o bloco */
+}
+
+/* CONTAINER DOS BOTÕES (Se você tiver um div.menu-buttons, caso contrário aplique no menu-container) */
+.menu-buttons {
+    display: flex;
+    flex-direction: column; /* Faz com que os links fiquem em coluna */
+}
+
+/* ESTILO DE CADA BOTÃO/LINK */
+.menu-button {
+    /* --- CORES E FUNDO --- */
+    background-color: #2c6b32; /* Fundo verde escuro para todos */
+    color: white; /* Cor do texto */
+    
+    /* --- FONTE E TEXTO --- */
+    font-family: 'Montserrat', sans-serif; /* A fonte desejada */
+    font-weight: 700; /* Peso da fonte (médio) */
+    font-size: 23px; /* Tamanho do texto */
+    text-transform: uppercase; /* Todo em maiúsculas */
+    text-decoration: none; /* Remove sublinhado */
+    text-align: center;
+    
+    /* --- LAYOUT E ESPAÇAMENTO --- */
+    display: block; /* Garante que o link ocupe a largura total */
+    padding: 25px 20px; /* Altura do botão */
+    
+    /* --- BORDAS E SEPARADORES --- */
+    border-radius: 0; /* Remove arredondamento */
+    border-bottom: 1px solid black;
+    margin: 0; /* Remove margens entre os botões */
+    
+    /* --- TRANSIÇÃO --- */
+    transition: background-color 0.3s ease;
+    letter-spacing: 6px
+}
+
+/* REMOVE A BORDA INFERIOR DO ÚLTIMO BOTÃO PARA MANTER A BORDA LIMPA NO FINAL */
+.menu-buttons a:last-child {
+    border-bottom: none;
+}
+
+/* EFEITO AO PASSAR O MOUSE (HOVER) */
+.menu-button:hover {
+    background-color: #447744; /* Um tom ligeiramente mais claro de verde */
+}
+
+
+/* ========================================================================== */
+/* ESTILOS GERAIS PARA BLOCOS DE TEXTO E TÍTULOS DE PÁGINAS SECUNDÁRIAS */
+/* ========================================================================== */
+
+/* Estilo Geral do Bloco de Conteúdo (Usado em várias páginas) */
+.content-text-block {
+    color: #000; /* Texto preto */
+    padding: 30px;
+    font-size: 20px;
+    position: absolute;
+    top: 200px;
+    left: 10%;
+    width: 75%;
+    max-width: 1000px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 5px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 5.0px;
+}
+
+.content-text-block p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo Geral do Título da Página (page-header-title / page-title) */
+.page-header-title {
+    color: var(--text-color);
+    font-size: 100px;
+    font-weight: 1000;
+    text-align: center;
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 1px 10px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ========================================================================== */
+/* ESTILOS DE BOTÃO DE VOLTAR */
+/* ========================================================================== */
+
+/* Botão de Voltar (Geral) */
+.back-button {
+    background-color: var(--dark-green);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: 1px solid var(--dark-green);
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.back-button:hover {
+    background-color: #447744;
+    color: white;
+}
+
+/* Posicionamento do BOTÃO DE VOLTAR FIXO */
+.back-button-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    z-index: 20;
+}
+
+
+/* ========================================================================== */
+/* PRELOADER (TELA DE CARREGAMENTO INICIAL) */
+/* ========================================================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    background-image: url('images/fundo textura.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+/* LOGO E ANIMAÇÃO DE PULSAÇÃO */
+.pulsing-logo {
+    width: 1000px;
+    height: auto;
+    display: block;
+    animation: pulse 4s infinite alternate;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.05); opacity: 1; }
+}
+
+
+/* ========================================================================== */
+/* ESTILOS DA PÁGINA "SOBRE O PROJETO" (.sobre-o-projeto-body) */
+/* ========================================================================== */
+.sobre-o-projeto-body {
+    background-image: url('images/fundo textura desenho.png');
+    background-color: initial;
+
+    /* MUDANÇA CRUCIAL: */
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+
+/* ========================================================================== */
+/* ESTILOS DA PÁGINA "HORTA SENSORIAL" (.horta-sensorial-body) */
+/* ========================================================================== */
+.horta-sensorial-body {
+    background-image: url('images/imagem vaso.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/* Estilo e Posicionamento do TÍTULO DA HORTA SENSORIAL */
+.page-title {
+    color: #273d27;
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    line-height: 1;
+    text-align: center;
+    width: 40%;
+    margin-top: 30px;
+
+    position: absolute;
+    top: 50px;
+    left: 35%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.horta-sensorial-body .content-text-block {
+    color: #000; /* Texto preto */
+    padding: 30px;
+    font-size: 18px;
+    position: absolute;
+    top: 200px;
+    left: 10%;
+    width: 47%;
+    max-width: 1000px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 5px;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 5.0px;
+    text-align: center;
+}
+
+
+/* ========================================================================== */
+/* ESTILOS DA PÁGINA "COMO MONTAR A HORTA" (.montar-horta-body) */
+/* ========================================================================== */
+.montar-horta-body {
+    background-image: url('images/fundo textura verde.png');
+    background-color: #f0f0f0; /* Cor de fallback */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilo Específico do TÍTULO da página "Como Montar" */
+.montar-horta-body .page-title {
+    color: #faf9f4; /* Cor verde escura */
+    font-size: 80px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    line-height: 0.85; /* Deixa as linhas próximas */
+    text-align: center;
+
+    width: 60%;
+    margin: 18px auto 30px auto; /* Centralizado, margem do topo e do texto */
+
+    /* Remova qualquer posicionamento absoluto que possa ter sobrado */
+    position: static;
+    top: initial;
+    left: initial;
+    transform: none;
+}
+
+.montar-horta-body .content-text-block {
+    position: relative;
+    top: -70px;
+    left: 10%;
+
+    width: 100%;
+    max-width: 1700px;
+    margin: 40px auto 40px -180px;
+    padding: 20px;
+
+    color: #000;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+
+    text-align: justify;
+}
+
+/* ========================================================================== */
+/* ESTILOS DA PÁGINA "TABELA DE PLANTAS" (.tabela-plantas-body) */
+/* ========================================================================== */
+.tabela-plantas-body {
+    background-image: url('images/fundo tabela.png');
+    background-color: #f0f0f0; /* Cor de fallback */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
+}
+
+/* Título da Tabela de Plantas (Posicionamento ABSOLUTO) */
+.tabela-plantas-body .page-title {
+    color: white;
+
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    line-height: 0.85;
+    text-align: center;
+
+    width: 60%;
+    padding: 30px 10px;
+
+    /* CENTRALIZAÇÃO VERTICAL E HORIZONTAL PERFEITA */
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+/* CONTAINER E POSICIONAMENTO GERAL DA TABELA */
+.tabela-plantas-body .content-table-block {
+    width: 98%;
+    max-width: 1600px;
+
+    /* Ajuste: Diminuímos o primeiro valor (margem superior) para subir a tabela */
+    margin: 150px auto 30px auto;
+
+    /* Garante que o container tenha altura máxima e rolagem interna se a tabela for grande */
+    max-height: 70vh;
+    overflow-y: auto;
+
+    border: 1px solid var(--dark-green);
+}
+
+/* ESTILO BASE DA TABELA */
+.tabela-plantas-body table {
+    width: 100%; /* Faz a tabela preencher 100% do seu container */
+    border-collapse: collapse;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    table-layout: fixed; /* Ajuda a controlar a largura das colunas */
+}
+
+/* ESTILO DOS CABEÇALHOS (th) */
+.tabela-plantas-body th {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ESTILO DAS CÉLULAS (td) */
+.tabela-plantas-body td {
+    background-color: white; /* Adiciona fundo branco às células de dados */
+    padding: 15px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+}
+
+/* ESTILO DE LINHAS ALTERNADAS (Opcional, para melhor leitura) */
+.tabela-plantas-body tr:nth-child(even) {
+    background-color: #f7f7f7; /* Cor de fundo para linhas pares */
+}
+.tabela-plantas-body tr:hover {
+    background-color: #e0e0e0; /* Fundo mais escuro ao passar o mouse */
+}
+
+
+/* ========================================================================== */
+/* ESTILOS DA PÁGINA "BENEFÍCIOS DA HORTA SENSORIAL" (.beneficios-horta-body) */
+/* ========================================================================== */
+.beneficios-horta-body {
+    background-image: url('images/imagem alecrim.png');
+    background-color: #f0f0f0; /* Cor de fallback */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Mantém o fundo rolando com a página */
+}
+
+/* BENEFÍCIOS: BLOCO SUPERIOR ESQUERDO AJUSTADO */
+.beneficios-horta-body .text-top-left {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    color: white;
+    width: 46%;
+    position: fixed;
+    top: 153px;
+    left: 7%;
+    line-height: 1.3;
+}
+
+/* BENEFÍCIOS: BLOCO INFERIOR DIREITO */
+.beneficios-horta-body .text-bottom-right {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    color: white;
+    width: 43%;
+    position: fixed;
+    top: 625px;
+    left: 49%;
+    line-height: 1.3;
+}
